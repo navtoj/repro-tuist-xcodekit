@@ -8,10 +8,11 @@ let project = Project(
             destinations: .macOS,
             product: .app,
             bundleId: "dev.tuist.Tuist",
+			deploymentTargets: .macOS("14.7.6"),
             infoPlist: .default,
             sources: ["Tuist/Sources/**"],
             resources: ["Tuist/Resources/**"],
-            dependencies: []
+            dependencies: [.sdk(name: "XcodeKit", type: .framework, status: .required)]
         ),
         .target(
             name: "TuistTests",
