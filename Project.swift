@@ -2,6 +2,16 @@ import ProjectDescription
 
 let project = Project(
     name: "Tuist",
+    settings: .settings(base: [
+        "FRAMEWORK_SEARCH_PATHS": .array([
+            "$(inherited)",
+            "$(DEVELOPER_DIR)/Library/Frameworks",
+        ]),
+        "LD_RUNPATH_SEARCH_PATHS": .array([
+            "$(inherited)",
+            "$(FRAMEWORK_SEARCH_PATHS)",
+        ]),
+    ]),
     targets: [
         .target(
             name: "Tuist",
